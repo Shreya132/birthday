@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy 20th Birthday</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <button id="brandBtn" class="brand" type="button">Louis's 20th</button>
+        <nav class="nav-links" aria-label="Birthday flow">
+          <button type="button" data-step="ask" class="nav-btn active">Start</button>
+          <button type="button" data-step="fireworks" class="nav-btn">Fireworks</button>
+          <button type="button" data-step="wish" class="nav-btn">The Wish</button>
+        </nav>
+        <button id="replayHeaderBtn" class="btn-amber-sm" type="button">Replay</button>
+      </div>
+    </header>
+
+    <main id="stage" class="stage">
+      <!-- Step 1: Casual Opener -->
+      <section id="view-ask" class="center-view">
+        <div class="card opener-card blue-shadow">
+          <div id="askAge" class="big-age">20</div>
+          <p id="askEyebrow" class="eyebrow">Level 20 Unlocked · From Elena</p>
+          <h1 id="askHeadline" class="hero-title">
+            Yo Louis — made something for your 20th. Ready?
+          </h1>
+          <div class="btn-row">
+            <button id="yesBtn" class="btn-blue" type="button">Let's Go →</button>
+            <button id="noBtn" class="btn-white" type="button">Nope</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 1b: Playful Nope Trap -->
+      <section id="view-dodge" class="center-view hidden">
+        <div class="card opener-card rose-shadow">
+          <p class="mono-tag rose-text">ACCESS DENIED</p>
+          <h1 class="hero-title">Nice try, birthday boy.</h1>
+          <p class="subtext">You already know you do not actually get to skip this.</p>
+          <div class="btn-row">
+            <button id="dodgeAcceptBtn" class="btn-amber" type="button">Okay, Open It →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 2: Fireworks Canvas -->
+      <section id="view-fireworks" class="fireworks-view hidden">
+        <canvas id="fireworksCanvas"></canvas>
+        <div class="fireworks-controls">
+          <p class="sky-hint">Tap or click anywhere in the sky for more fireworks</p>
+          <div class="btn-row">
+            <button id="replayFireworksBtn" class="btn-dark" type="button">Replay</button>
+            <button id="toWishBtn" class="btn-amber-blue" type="button">See Your Wish →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Photo + 20th Birthday Wish Spread -->
+      <section id="view-wish" class="wish-view hidden">
+        <div class="wish-grid">
+          <!-- Left: Photo Stack -->
+          <div class="photo-card amber-shadow">
+            <img id="photoImg" src="" alt="Birthday memory" />
+            <div id="photoFallback" class="photo-fallback hidden">
+              <span class="fallback-icon">20</span>
+              <p id="fallbackCaption"></p>
+            </div>
+            <div class="photo-scrim"></div>
+            <div class="photo-overlay">
+              <div>
+                <p id="photoMeta" class="photo-meta">2025 · 01/03</p>
+                <p id="photoCaption" class="photo-caption"></p>
+              </div>
+              <div class="photo-nav">
+                <button id="prevPhotoBtn" class="icon-btn bg-white" type="button" aria-label="Previous photo">‹</button>
+                <button id="nextPhotoBtn" class="icon-btn bg-amber" type="button" aria-label="Next photo">›</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Wish & Birthday Song Player -->
+          <div class="card wish-card blue-shadow">
+            <div>
+              <p id="wishKicker" class="kicker">Happy 20th Birthday, Louis · From Shreya</p>
+              <h1 id="wishHeadline" class="wish-title"></h1>
+              <p id="wishMessage" class="wish-body"></p>
+            </div>
+
+            <div class="keepsake-list">
+              <div class="keepsake-row">
+                <div>
+                  <div class="row-label blue-text">20th Birthday Song</div>
+                  <div id="songName" class="row-title">Happy Birthday to You · Classic 20th Chime</div>
+                </div>
+                <div class="row-actions">
+                  <button id="nextSongBtn" class="btn-white-sm" type="button">Next Song</button>
+                  <button id="playSongBtn" class="btn-blue-sm" type="button">Play</button>
+                </div>
+              </div>
+
+              <div class="keepsake-row">
+                <div>
+                  <div class="row-title">20th Fireworks Sky</div>
+                  <div class="row-sub">Watch the glowing sky reveal again</div>
+                </div>
+                <button id="launchSkyBtn" class="btn-rose-sm" type="button">Launch Sky</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

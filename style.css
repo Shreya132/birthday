@@ -1,0 +1,496 @@
+:root {
+  --bg: #fffbf2;
+  --ink: #18181b;
+  --muted: #52525b;
+  --blue: #2563eb;
+  --amber: #fcd34d;
+  --amber-strong: #f59e0b;
+  --rose: #fecdd3;
+  --rose-strong: #e11d48;
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 8% 15%, rgba(37, 99, 235, 0.11) 0%, transparent 32%),
+    radial-gradient(circle at 92% 18%, rgba(245, 158, 11, 0.16) 0%, transparent 34%),
+    radial-gradient(circle at 84% 86%, rgba(244, 63, 94, 0.11) 0%, transparent 32%),
+    radial-gradient(circle at 14% 85%, rgba(16, 185, 129, 0.12) 0%, transparent 32%);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Header */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: 64px;
+  border-bottom: 2px solid var(--ink);
+  background: rgba(255, 251, 242, 0.94);
+  backdrop-filter: blur(8px);
+}
+
+.topbar-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  border: none;
+  background: none;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-btn {
+  border: none;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.nav-btn.active,
+.nav-btn:hover {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+/* Stage */
+.stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.center-view {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.card {
+  background: #ffffff;
+  border: 2px solid var(--ink);
+  border-radius: 24px;
+}
+
+.opener-card {
+  max-width: 660px;
+  width: 100%;
+  padding: 48px 36px;
+  text-align: center;
+}
+
+.blue-shadow {
+  box-shadow: 8px 8px 0 var(--blue);
+}
+
+.rose-shadow {
+  box-shadow: 8px 8px 0 var(--rose-strong);
+}
+
+.amber-shadow {
+  box-shadow: 8px 8px 0 var(--amber-strong);
+}
+
+.big-age {
+  font-family: var(--font-mono);
+  font-size: clamp(56px, 8vw, 76px);
+  font-weight: 700;
+  color: var(--amber-strong);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.eyebrow,
+.kicker {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.kicker {
+  color: var(--blue);
+}
+
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.rose-text {
+  color: var(--rose-strong);
+}
+
+.blue-text {
+  color: var(--blue);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4.4vw, 52px);
+  line-height: 1.1;
+  margin-bottom: 30px;
+}
+
+.subtext {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+/* Buttons */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+button {
+  font-family: var(--font-sans);
+}
+
+.btn-blue,
+.btn-white,
+.btn-amber,
+.btn-dark,
+.btn-amber-blue {
+  padding: 13px 26px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  box-shadow: 0 4px 0 var(--ink);
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+
+.btn-blue:active,
+.btn-white:active,
+.btn-amber:active {
+  transform: translateY(2px);
+}
+
+.btn-blue {
+  background: var(--blue);
+  color: #ffffff;
+}
+
+.btn-white {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.btn-amber {
+  background: var(--amber);
+  color: var(--ink);
+}
+
+.btn-dark {
+  background: #18181b;
+  color: #f4f4f5;
+  border-color: #3f3f46;
+  box-shadow: none;
+}
+
+.btn-amber-blue {
+  background: var(--amber);
+  color: var(--ink);
+  box-shadow: 0 4px 0 var(--blue);
+}
+
+.btn-amber-sm,
+.btn-white-sm,
+.btn-blue-sm,
+.btn-rose-sm {
+  padding: 9px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-amber-sm {
+  background: var(--amber);
+  box-shadow: 0 3px 0 var(--ink);
+}
+
+.btn-white-sm {
+  background: var(--bg);
+}
+
+.btn-blue-sm {
+  background: var(--blue);
+  color: #ffffff;
+}
+
+.btn-rose-sm {
+  background: var(--rose);
+  color: var(--ink);
+}
+
+/* Fireworks View */
+.fireworks-view {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 64px);
+  min-height: 540px;
+  background: #0d0f17;
+  overflow: hidden;
+}
+
+#fireworksCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+}
+
+.fireworks-controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.fireworks-controls .btn-row {
+  pointer-events: auto;
+}
+
+.sky-hint {
+  font-size: 12px;
+  color: #a1a1aa;
+}
+
+/* Wish Spread */
+.wish-view {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 40px 24px;
+}
+
+.wish-grid {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: stretch;
+}
+
+.photo-card {
+  position: relative;
+  min-height: 440px;
+  border: 2px solid var(--ink);
+  border-radius: 24px;
+  overflow: hidden;
+  background: #18181b;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #f4f4f5;
+  padding: 24px;
+  text-align: center;
+}
+
+.fallback-icon {
+  font-family: var(--font-mono);
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+
+.photo-scrim {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 140px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+  pointer-events: none;
+}
+
+.photo-overlay {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.photo-meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--amber);
+}
+
+.photo-caption {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 3px;
+}
+
+.photo-nav {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.bg-white {
+  background: #ffffff;
+}
+
+.bg-amber {
+  background: var(--amber);
+}
+
+.wish-card {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wish-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.2vw, 42px);
+  line-height: 1.12;
+}
+
+.wish-body {
+  margin-top: 18px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #3f3f46;
+}
+
+.keepsake-list {
+  margin-top: 32px;
+  border-top: 2px solid #e4e4e7;
+}
+
+.keepsake-row {
+  padding: 16px 0;
+  border-bottom: 2px solid #e4e4e7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.keepsake-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.row-label {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.row-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.row-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.row-actions {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 860px) {
+  .nav-links {
+    display: none;
+  }
+  .wish-grid {
+    grid-template-columns: 1fr;
+  }
+  .photo-card {
+    min-height: 340px;
+  }
+}
